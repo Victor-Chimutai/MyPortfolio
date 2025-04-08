@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Victor_Chimutai Portfolio</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        /* Additional responsive styles */
+        .header-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-nav-wrap {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .header-menu-toggle {
+            display: none;
+        }
+        
+        .intro-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .item-service {
+            flex: 1 1 300px;
+            max-width: 400px;
+        }
+        
+        .certifications-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .intro-scroll {
+            position: relative;
+            z-index: 3;
+            margin-top: 2rem;
+        }
+        
+        .intro-pic {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .header-menu-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .header-nav-wrap {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: rgba(0, 0, 0, 0.95);
+                padding: 20px;
+            }
+            
+            .header-nav-wrap.is-menu-visible {
+                display: flex;
+            }
+            
+            .header-main-nav {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .header-social {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            .intro-text h1 {
+                font-size: 24px;
+            }
+            
+            .item-service {
+                flex: 1 1 100%;
+            }
+        }
+        
+        .certification-img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 800px) {
+            .s-intro {
+                position: relative;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+
+            .intro-pic {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-top: 0;
+                background-size: cover;
+                background-position: center;
+                opacity: 0.8;
+                z-index: 1;
+            }
+
+            .intro-content {
+                padding: 0;
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+
+            .intro-text {
+                margin-bottom: 2rem;
+                width: 100%;
+                max-width: 90%;
+                padding: 1.5rem;
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: 15px;
+            }
+
+            .intro-text h1 {
+                font-size: 1.4rem;
+                line-height: 1.6;
+                text-align: center;
+                margin: 0 auto;
+                color: #ffffff;
+                display: block;
+                width: 100%;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 600;
+            }
+
+            .intro-text h3 {
+                font-size: 1.1rem;
+                text-align: center;
+                color: #ffffff;
+                margin-bottom: 1.5rem;
+                font-weight: 400;
+            }
+
+            .intro-scroll {
+                margin-top: 2rem;
+                text-align: center;
+                width: 100%;
+                position: absolute;
+                bottom: 2rem;
+            }
+
+            .intro-scroll-link {
+                font-size: 0.9rem;
+                color: #ffffff;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                position: relative;
+                display: inline-block;
+            }
+
+            .intro-scroll-link::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #ff0077;
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                transform: scaleX(1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-text h1 {
+                font-size: 1.2rem;
+                line-height: 1.5;
+            }
+
+            .intro-text {
+                padding: 1.2rem;
+                max-width: 95%;
+            }
+
+            .intro-text h3 {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .intro-pic {
+                opacity: 0.7;
+            }
+
+            .intro-scroll {
+                bottom: 1.5rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Matches headerOffset */
+        }
+        
+        @media screen and (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <!-- site header
+    ================================================== -->
+    <header class="s-header">
+        <div class="container">
+            <div class="header-logo">
+                <a class="site-logo" href="index.html" style="font-size: 28px; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: 1px;">
+                    VICTOR
+                </a>
+            </div>
+
+            <nav class="header-nav-wrap">
+                <ul class="header-main-nav">
+                    <li class="current"><a class="smoothscroll" href="#intro" title="intro">Intro</a></li>
+                    <li><a class="smoothscroll" href="#about" title="about">About</a></li>
+                    <li><a class="smoothscroll" href="#services" title="services">Services</a></li>
+                    <li><a class="smoothscroll" href="#contact" title="contact us">Say Hello</a></li>	
+                </ul>
+
+                <ul class="header-social">
+                    <li><a href="https://www.linkedin.com/in/victor-chimutai-4b59a9299" target="_blank"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                </ul>
+            </nav>
+
+            <a class="header-menu-toggle" href="#"><span>Menu</span></a>
+        </div>
+    </header>
+
+
+    <!-- intro
+    ================================================== -->
+    <section id="intro" class="s-intro target-section">
+        <div class="container">
+            <div class="row intro-content">
+                <div class="col-12 col-md-8 mx-auto intro-text">
+                    <h3>Hello, I'm Victor Chimutai</h3>
+                    <h1>
+                        SECOND YEAR<br>
+                        ICT & ENGINEERING<br>
+                        STUDENT BASED IN HARARE ZIMBABWE
+                    </h1>
+                </div>
+
+                <div class="col-12 intro-scroll">
+                    <a href="#about" class="intro-scroll-link smoothscroll">
+                        Scroll For More
+                    </a>
+                </div>
+            </div>
+            <div class="intro-pic" style="background-image: url('./images/portrait.png');"></div>
+        </div>
+    </section>
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+
+        <div class="about-me">
+
+            <div class="row heading-block" data-aos="fade-up">
+                <div class="column large-full">
+                    <h2 class="section-heading">About Me</h2>
+                </div>
+            </div>
+
+            <div class="row about-me__content" data-aos="fade-up">
+                <div class="column large-full about-me__text">
+                    <p class="lead">
+                        Hi, I'm Victor Chimutai, a passionate cybersecurity enthusiast, software developer, and tech innovator.
+                         I'm currently pursuing a BSc in ICT Networking and Software Development at Arrupe Jesuit University,
+                          where I explore my love for coding, ethical hacking, and network security. 
+                          With experience in mobile app development, IoT penetration testing, and web technologies, 
+                          I enjoy building solutions that blend security and functionality.
+                    </p>
+
+                    <p>
+                        My goal is to become an expert in networking and cybersecurity,
+                         mastering how networks operate and how to defend them against cyber threats. 
+                         I am constantly learning, experimenting, 
+                         and applying my knowledge through real-world projects—whether it's penetration testing IoT devices,
+                          securing wireless networks, or building innovative tech solutions. I believe in continuous improvement and staying ahead in this ever-evolving field, 
+                          and I'm excited to connect with like-minded professionals and contribute to the world of cybersecurity.
+
+
+                    </p>
+
+                    <p>
+                        I also have a deep interest in teaching and sharing knowledge with others. Whether through leading workshops, 
+                        mentoring fellow students, or contributing to online communities, I strive to inspire others to dive into the world of technology and cybersecurity.
+                         I believe that knowledge is power, and I'm always looking for opportunities to collaborate and help others grow in their understanding of the field.
+                         Sharing my experiences not only reinforces my own learning but also fosters a sense of community among those who are passionate about tech.
+                    </p>
+
+                    <p>
+                        Looking to the future, I am excited to continue developing my skills and exploring new areas within cybersecurity,
+                         such as ethical hacking, threat hunting, and digital forensics. 
+                         My long-term goal is to work with cutting-edge technologies and contribute to protecting individuals, organizations, and systems from emerging cyber threats. 
+                         As I continue my studies and gain hands-on experience, 
+                         I am eager to make meaningful contributions to the cybersecurity landscape and ensure that the digital world remains a safe place for all.
+                    </p>
+                </div>
+            </div>
+
+        </div> <!-- end about-me -->
+
+        <div class="about-experience">
+
+            <div class="row heading-block" data-aos="fade-up">
+                <div class="column large-full">
+                    <h2 class="section-heading" style="text-align: center; display: inline-block; margin: 0 auto; position: relative; left: 50%; transform: translateX(-50%);">Work & Education</h2>
+                </div>
+            </div>
+
+            <div class="row about-experience__timeline" style="justify-content: center;">
+
+                <div class="column large-half tab-full" data-aos="fade-up" style="max-width: 800px; margin: 0 auto;">
+                    <div class="timeline">
+
+                        <div class="timeline__icon-wrap">
+                            <span class="timeline__icon timeline__icon--work"></span>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <p class="timeline__timeframe">2024-2028</p>
+                                <h3 class="item-title">University of Life</h3>
+                                <h5>Bachelor's Degree</h5>
+                            </div>
+                            <div class="timeline__desc">
+                                <p>
+                                    I am currently pursuing a BSc in ICT Networking and Software Development at Arrupe Jesuit University. 
+                                    My studies focus on building a strong foundation in networking, programming, and cybersecurity, 
+                                    equipping me with the knowledge and skills needed to excel in the tech industry. I am learning how to design, implement,
+                                     and maintain network infrastructures while developing software solutions to solve real-world problems. This program also delves into ethical hacking, 
+                                     penetration testing, and the principles of network security. 
+                                    I am excited to apply these concepts through hands-on projects and research to advance my expertise in the field.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> <!-- end about-experience -->
+
+        </div> <!-- end about-experience -->
+
+    </section> <!-- end s-about -->
+
+
+    <!-- services
+    ================================================== -->
+    <section id="services" class="s-services ss-dark target-section">
+        <div class="container">
+            <div class="row heading-block heading-block--center" data-aos="fade-up">
+                <div class="col-12">
+                    <h2 class="section-heading section-heading--centerbottom">Capabilities</h2>
+                    <p class="section-desc">
+                        My passion and goal is to become an expert in Network Security.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row services-list">
+                <div class="col-12 col-md-6 col-lg-4 item-service" data-aos="fade-up">
+                    <div class="item-service__content">
+                        <h4 class="item-title">Python programming</h4>
+                        <p>
+                            I use Python to explore various aspects of cybersecurity, from ethical hacking to network security. 
+                            I've developed tools like a QR code encryption system to protect sensitive data and conducted penetration tests on IoT devices, such as my Roku. 
+                            Python helps me automate tasks, scan networks, and analyze vulnerabilities. 
+                            I am constantly enhancing my skills to create advanced security tools, including network sniffers and exploit scripts. 
+                            My work combines my passion for programming with my commitment to strengthening cybersecurity.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 item-service" data-aos="fade-up">
+                    <div class="item-service__content">
+                        <h4 class="item-title">Web Development</h4>
+                        <p>
+                            I specialize in web development using HTML, CSS, and JavaScript to create responsive, visually appealing, and user-friendly websites.
+                             My skills include building static and dynamic web pages, ensuring cross-browser compatibility, and integrating interactive elements using JavaScript.
+                             I focus on crafting clean, well-structured code to deliver seamless user experiences.
+                              With CSS, I design layouts that are both functional and aesthetically pleasing, while JavaScript allows me to add interactive features,
+                               such as form validations and dynamic content updates. 
+                              I'm passionate about continuously improving my web development skills to create engaging, secure, and optimized websites.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 item-service" data-aos="fade-up">
+                    <div class="item-service__content">
+                        <h4 class="item-title">Configuring switches and routers
+
+                        </h4>
+                        <p>
+                            I have hands-on experience configuring Cisco switches and routers, 
+                            including setting up VLANs, inter-VLAN routing, static and dynamic routing protocols (such as OSPF), 
+                            and securing devices using access control lists and password protection. I'm confident in using the command-line interface (CLI) to
+                             troubleshoot network connectivity issues and implement scalable network solutions.
+
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 item-service" data-aos="fade-up">
+                    <div class="item-service__content">
+                        <h4 class="item-title">IT Technical Support (WAN & LAN)</h4>
+                        <p>
+                            I provide IT technical support for both Wide Area Networks (WAN) and Local Area Networks (LAN) by troubleshooting connectivity issues,
+                             configuring routers, switches, and access points, and ensuring stable and secure network performance.
+                             I assist users with network access, diagnose IP conflicts, and maintain proper network documentation.
+                              My hands-on experience includes cabling, subnetting, and supporting networked devices across different environments.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 item-service" data-aos="fade-up">
+                    <div class="item-service__content">
+                        <h4 class="item-title">Penetration Testing & Vulnerability Scanning</h4>
+                        <p>
+                            I have practical experience conducting vulnerability assessments and basic penetration
+                             testing using tools like Nmap, Nikto, and Kali Linux utilities. I can identify open ports, 
+                             scan for vulnerabilities, assess security risks, and report findings. My skills include simulating real-world attacks to test
+                              network and application security, as well as applying ethical hacking principles to improve system defenses.
+
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 item-service" data-aos="fade-up">
+                    <div class="item-service__content">
+                        <h4 class="item-title">Windows Fundamentals</h4>
+                        <p>
+                            I have a solid understanding of Windows operating systems,
+                             including system navigation, file and user management,
+                              and basic administrative tasks. I'm familiar with configuring system settings, 
+                              managing software and hardware, using Command Prompt and PowerShell for basic tasks, and maintaining system security 
+                              through user permissions, updates, and antivirus tools.
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA
+    ================================================== -->
+    <section class="s-cta ss-dark">
+        <div class="container">
+            <div class="row heading-block heading-block--center" data-aos="fade-up">
+                <div class="col-12">
+                    <h2 class="section-desc">
+                        Badges and Certifications
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row cta-content" data-aos="fade-up">
+                <div class="col-12">
+                    <div class="certifications-container">
+                        <div class="col-12 col-md-6 text-center mb-4">
+                            <a href="https://www.credly.com/badges/7d5d7f2a-d41b-40b6-b226-3bdad6049c00/public_url" target="_blank">
+                                <img src="./images/ethical-hacker.png" alt="Ethical Hacker Certification" class="img-fluid certification-img" style="max-width: 200px; height: auto; transition: transform 0.3s ease;">
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 text-center mb-4">
+                            <img src="./images/isc2.JPG" alt="ISC2 Certification" class="img-fluid certification-img" style="max-width: 200px; height: auto; cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for enlarged image -->
+    <div id="imageModal" class="modal" style="display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);">
+        <span class="close" style="position: absolute; right: 25px; top: 10px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
+        <img class="modal-content" id="modalImage" style="margin: auto; display: block; max-width: 90%; max-height: 90%; position: relative; top: 50%; transform: translateY(-50%);">
+    </div>
+
+    <script>
+        function openModal(imgSrc) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        // Get the modal
+        var modal = document.getElementById("imageModal");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+   
+
+
+    <!-- contact
+    ================================================== -->
+    <section id="contact" class="s-contact ss-dark target-section">
+        <div class="container">
+            <div class="row heading-block" data-aos="fade-up">
+                <div class="col-12">
+                    <h2 class="section-heading">Get In Touch</h2>
+                </div>
+            </div>
+
+            <div class="row contact-main" data-aos="fade-up">
+                <div class="col-12">
+                    <p class="contact-email">
+                        <a href="mailto:vickchims@gmail.com">vickchims@gmail.com</a>
+                    </p>
+
+                    <p class="section-desc">
+                        I'm happy to connect, listen and collaborate.
+                        <a href="mailto:vickchims@gmail.com">Email Me</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 contact-social">
+                    <h4>Social</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.linkedin.com/in/victor-chimutai-4b59a9299" title="LinkedIn">LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/victorchimutai_/?hl=en" title="Instagram">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 ss-copyright">
+                    <span>© Copyright 2025</span> 
+                    <span>Design by <a href="https://www.linkedin.com/in/victor-chimutai-4b59a9299">Victor Chimutai</a></span>
+                </div>            
+
+                <div class="col-12 ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- end photoSwipe background -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu toggle functionality
+            const menuToggle = document.querySelector('.header-menu-toggle');
+            const navWrap = document.querySelector('.header-nav-wrap');
+            
+            menuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                navWrap.classList.toggle('is-menu-visible');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navWrap.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navWrap.classList.remove('is-menu-visible');
+                }
+            });
+
+            // Smooth scroll functionality
+            document.querySelectorAll('a.smoothscroll').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        navWrap.classList.remove('is-menu-visible');
+                        
+                        // Calculate scroll position
+                        const headerOffset = 80; // Adjust this value based on your header height
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth',
+                            duration: 500 // Faster duration
+                        });
+                    }
+                });
+            });
+
+            // Add active class to nav items
+            const sections = document.querySelectorAll('.target-section');
+            const navItems = document.querySelectorAll('.header-main-nav li');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('current');
+                    if (item.querySelector('a').getAttribute('href').slice(1) === current) {
+                        item.classList.add('current');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
